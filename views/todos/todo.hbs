@@ -1,0 +1,99 @@
+{{>navbar}}
+<div class="wrapper-md py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-10 col-md-8 col-lg-6 mx-auto">
+                <div class="card app-card rounded-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-4">
+                            <div>
+                                <h5 class="title-text mb-1" id="todoPane">
+                                    <span id="todoContent">
+                                        {{todo.title}}
+                                    </span>
+                                </h5>
+                                <div class="text-muted">
+                                    <i class="fas fa-clock"></i>
+                                    <small>{{dateFormat todo.updatedAt "MMMM Do YYYY"}}</small>
+                                </div>
+                            </div>
+
+                            <div class="ml-2 dropdown">
+                                <button class="btn btn-transparent" data-toggle="dropdown">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </button>
+
+                                <ul class="dropdown-menu dropdown-menu-right app-menu">
+                                    <li>
+                                        <a href="" class="dropdown-item" id="editTodo">
+                                            <i class="fas fa-pen mr-2"></i>
+                                            Edit
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="dropdown-item" id="deleteTodo">
+                                            <i class="fas fa-trash-alt mr-2"></i>
+                                            Delete
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <ul class="todo-tasks mb-4" id="todoTasks">
+                            {{#each todo.items as |item|}}
+                            <li class="mb-2" id="taskContainer-{{item.id}}">
+                                <div class="d-flex dropdown">
+                                    <div class="mr-2 align-self-start">
+                                        <button class="btn btn-transparent btn-sm" data-toggle="dropdown">
+                                            <i class="fa fa-ellipsis-v"></i>
+                                        </button>
+
+                                        <ul class="dropdown-menu app-menu">
+                                            <li>
+                                                <a class="dropdown-item editTask" data-id="{{id}}">
+                                                    <i class="fas fa-pen mr-2"></i>
+                                                    Edit
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item deleteTask" data-id="{{id}}">
+                                                    <i class="fas fa-trash-alt mr-2"></i>
+                                                    Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="align-self-center" id="task-{{item.id}}">
+                                        <div class="custom-control custom-checkbox" id="taskContent-{{item.id}}">
+                                            <input type="checkbox" class="custom-control-input toggleTask"
+                                                id="task-done-{{item.id}}" {{#if item.done}}checked{{/if}}
+                                                data-id="{{item.id}}">
+                                            <label for="task-done-{{item.id}}"
+                                                class="custom-control-label mb-0 {{#if item.done}}task-done{{/if}}">
+                                                {{item.task}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            {{/each}}
+                        </ul>
+
+                        {{!-- Add Task --}}
+                        <div class="mb-3">
+                            <button type="button" class="btn btn-sm btn-light" id="addTask">
+                                <i class="fas fa-plus"></i>
+                                Task
+                            </button>
+                        </div>
+                        {{!-- Add Task --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script defer src="/js/todo.js"></script>
+<input type="hidden" value="{{todo.id}}" id="todoID">
+{{>footer}}

@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <a class="navbar-brand" href="/">
+        <div class="d-flex align-tems-center">
+            <img src="/imgs/logo.png" alt="Logo" class="logo mr-1" />
+            <h5 class="m-0 text-white font-weight-bold">Todos</h5>
+        </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item {{#if (eq path '/')}}active{{/if}}">
+                <a class="nav-link" href="/">
+                    Home
+                    {{#if (eq path '/')}}<span class="sr-only">(current)</span>{{/if}}
+                </a>
+            </li>
+            <li class="nav-item {{#if (eq path '/#features')}}active{{/if}}">
+                <a class="nav-link" href="/#features">
+                    Features
+                    {{#if (eq path '/#features')}}<span class="sr-only">(current)</span>{{/if}}
+                </a>
+            </li>
+            {{#if isLoggedIn}}
+            <li class="nav-item {{#if (eq path '/dashboard')}}active{{/if}}">
+                <a class="nav-link" href="/dashboard">
+                    Dashboard
+                    {{#if (eq path '/dashboard')}}<span class="sr-only">(current)</span>{{/if}}
+                </a>
+            </li>
+            {{else}}
+            <li class="nav-item {{#if (eq path '/login')}}active{{/if}}">
+                <a class="nav-link" href="/login">
+                    Login
+                    {{#if (eq path '/login')}}<span class="sr-only">(current)</span>{{/if}}
+                </a>
+            </li>
+            {{/if}}
+        </ul>
+
+        {{#if isLoggedIn}}
+        <form action="/logout" method="post" class="m-0 form-inline">
+            <button class="btn btn-danger btn-sm my-2 my-sm-0">
+                <i class="fa fa-power-off"></i>
+                Logout
+            </button>
+        </form>
+        {{/if}}
+    </div>
+</nav>

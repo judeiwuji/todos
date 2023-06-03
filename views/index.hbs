@@ -1,0 +1,89 @@
+{{>navbar}}
+
+<header class="bg-white">
+    <div class="banner">
+        <div class="container">
+            <div class="hero-textbox">
+                <h1>Organize your tasks effortlessly</h1>
+                <p>
+                    Todos is a task manager app, that enables you to organize your tasks on the go effortlessly.
+                    With Todos you can easily create, edit, make a task as done and delete a task.
+                </p>
+                {{#if isLoggedIn}}
+                <a href="{{#if isDeveloper}}/developer/dashboard{{else}}/dashboard{{/if}}" class="btn btn-light btn-lg">
+                    Dashboard
+                </a>
+                {{else}}
+                <a href="/login" class="btn btn-light btn-lg">
+                    Get started
+                </a>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="features-section" id="features">
+    <div class="feature-one-identity">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <img src="imgs/organize_tasks.svg" alt="One Identity">
+                </div>
+                <div class="col-12 col-md-6">
+                    <h3>
+                        <i class="fa fa-list-alt me-1"></i>
+                        Organize tasks
+                    </h3>
+                    <p>
+                        You can now oganize your day-to-day tasks with Todos the best task organizer.
+                        Your location doesn't because Todos is always handy, start using it from anywhere at anytime!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="feature-security">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <h3>
+                        <i class="fa fa-shield me-1"></i>
+                        No breaches
+                    </h3>
+                    <p>
+                        We ensure your account is secured. As we are using a robust application for our authentication
+                        system.
+                        Feel safe, cause your data is safe with us.
+                    </p>
+                </div>
+                <div class="col-12 col-md-6">
+                    <img src="imgs/secured.svg" alt="Secured feature">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="feature-support">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <img src="imgs/portable.svg" alt="Support feature">
+                </div>
+                <div class="col-12 col-md-6">
+                    <h3>
+                        <i class="fa fa-clock me-1"></i>
+                        Portable
+                    </h3>
+                    <p>
+                        Todos runs on the web, which means you can access your todos from any device either
+                        smartphones, laptops or desktops,
+                        Todos is everywhere.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{>footer}}
