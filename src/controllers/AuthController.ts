@@ -2,8 +2,6 @@ import { Request, Response } from 'express';
 import axios from 'axios';
 import AppConfig from '../config/AppConfig';
 import UserService from '../services/UserService';
-import AlreadyExistsError from '../models/errors/AlreadyExistsError';
-import crypto from 'crypto';
 import JWTUtil from '../utils/JWTUtil';
 
 export default class AuthController {
